@@ -6,6 +6,7 @@ A simple library to generate random symmetric pixel avatars.
 
 ```bash
 npm install random-pixel-avatar
+```
 
 ```javascript
 const { createAvatar } = require('random-pixel-avatar');
