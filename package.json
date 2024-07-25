@@ -1,0 +1,21 @@
+{
+  "name": "random-pixel-avatar",
+  "version": "1.0.0",
+  "description": "random pixel avatar",
+  "main": "index.js",
+  "author": "Catlina-2B",
+  "license": "MIT",
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
