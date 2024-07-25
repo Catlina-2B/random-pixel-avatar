@@ -1,13 +1,13 @@
 {
   "name": "random-pixel-avatar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "random pixel avatar",
   "main": "index.js",
   "author": "Catlina-2B",
   "license": "MIT",
-  "types": "types/index.d.ts",
+  "repository": "https://github.com/Catlina-2B/random-pixel-avatar",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
     "canvas": "^2.11.2"
