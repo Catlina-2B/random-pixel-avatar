@@ -1,6 +1,6 @@
 {
   "name": "random-pixel-avatar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "random pixel avatar",
   "main": "index.js",
   "author": "Catlina-2B",
@@ -10,7 +10,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "canvas": "^2.11.2"
+    "svg": "^0.1.0"
   },
   "devDependencies": {
     "typescript": "^5.5.4"

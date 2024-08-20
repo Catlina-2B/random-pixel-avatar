@@ -1,5 +1,3 @@
-const { createCanvas } = require("canvas/browser");
-
 function generateSymmetricAvatar(size, baseColor) {
   const halfSize = Math.ceil(size / 2);
   const pixels = [];
@@ -29,34 +27,35 @@ function getRandomColor() {
   return `rgb(${r},${g},${b})`;
 }
 
-function getAccount(account) {
-  if(!localStorage) return null;
-  return localStorage.getItem(`__avatar_${account}`);
-}
-
-function setAccount(account, avatar) {
-  if(!localStorage) return;
-  localStorage.setItem(`__avatar_${account}`, avatar);
-}
-
 function createAvatar({ size, pixelSize, baseColor = null, account }) {
   if (account && getAccount(account)) {
     return getAccount(account);
   }
-  const canvas = createCanvas(size * pixelSize, size * pixelSize);
-  const context = canvas.getContext("2d");
+  
   const pixels = generateSymmetricAvatar(size, baseColor);
+  let svgContent = `<svg width="${size * pixelSize}" height="${size * pixelSize}" xmlns="http://www.w3.org/2000/svg">`;
 
   for (let y = 0; y < pixels.length; y++) {
     for (let x = 0; x < pixels[y].length; x++) {
-      context.fillStyle = pixels[y][x];
-      context.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+      svgContent += `<rect x="${x * pixelSize}" y="${y * pixelSize}" width="${pixelSize}" height="${pixelSize}" fill="${pixels[y][x]}"/>`;
     }
   }
-  const avatar = canvas.toDataURL();
+  svgContent += `</svg>`;
+
+  const avatar = `data:image/svg+xml;base64,${Buffer.from(svgContent).toString('base64')}`;
   account && setAccount(account, avatar);
 
   return avatar;
+}
+
+function getAccount(account) {
+  if (!localStorage) return null;
+  return localStorage.getItem(`__avatar_${account}`);
+}
+
+function setAccount(account, avatar) {
+  if (!localStorage) return;
+  localStorage.setItem(`__avatar_${account}`, avatar);
 }
 
 module.exports = {
