@@ -1,8 +1,22 @@
 {
   "name": "random-pixel-avatar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "random pixel avatar",
   "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./index.mjs"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./index.js"
+      }
+    }
+  },
   "author": "Catlina-2B",
   "license": "MIT",
   "repository": "https://github.com/Catlina-2B/random-pixel-avatar",
